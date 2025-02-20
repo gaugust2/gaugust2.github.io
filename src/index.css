@@ -7,3 +7,7 @@
 .sidebar-heading-hover {
   @apply hover:text-4xl transition-all duration-300;
 }
+
+.media-icon-hover {
+  @apply text-white group-hover:text-gray-400 transition-colors duration-200;
+}
