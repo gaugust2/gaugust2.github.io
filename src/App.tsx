@@ -5,20 +5,6 @@ import GithubIcon from "./assets/github.svg?react"
 import LinkedInIcon from "./assets/linkedin.svg?react"
 import EmailIcon from "./assets/email.svg?react"
 
-function handleClipboard(email: string) {
-  navigator.clipboard.writeText(email)
-    .then(() => {
-      alert("Email copied to clipboard!");
-    })
-    .catch(err => {
-      alert("Failed to copy email: " + err);
-    });
-}
-
-function openPage(url: string){
-  window.open(url, "_blank")
-}
-
 function App() {
   const sections = [
     {
@@ -43,17 +29,17 @@ function App() {
     {
       href: "https://github.com/gaugust2",
       svg: <GithubIcon className="h-10 w-10 media-icon-hover" />,
-      myOnClick: openPage
+      isTypeURL: true
     },
     {
       href: "https://www.linkedin.com/in/gerald-augustinepillai-8b3832260",
       svg: <LinkedInIcon className="h-10 w-10 media-icon-hover" />,
-      myOnClick: openPage
+      isTypeURL: true
     },
     {
       href: "a.gerald.2002@gmail.com",
       svg: <EmailIcon className="h-10 w-10 media-icon-hover" />,
-      myOnClick: handleClipboard
+      isTypeURL: false
     }
   ]
 

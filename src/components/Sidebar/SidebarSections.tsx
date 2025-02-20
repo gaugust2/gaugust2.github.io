@@ -1,6 +1,6 @@
 export interface SidebarSectionsProps {
     sections: {
-        href: string,
+        href: string
         name: string
     }[]
 }
