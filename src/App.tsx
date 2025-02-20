@@ -1,11 +1,17 @@
-//import { useState } from 'react'
 import "./App.css"
 import Sidebar from "./components/Sidebar/Sidebar"
+import SidebarIcons from "./components/Sidebar/SidebarIcons";
+import SidebarSections from "./components/Sidebar/SidebarSections";
+import SidebarHeader from "./components/Sidebar/SidebarHeader";
 import GithubIcon from "./assets/github.svg?react"
 import LinkedInIcon from "./assets/linkedin.svg?react"
 import EmailIcon from "./assets/email.svg?react"
 
 function App() {
+  const header = {
+    name: "Gerald Augustinepillai",
+    description: "4th Year Software Engineering Student at Western University"
+  }
   const sections = [
     {
       href: "#Home",
@@ -46,7 +52,11 @@ function App() {
   return (
     <div className='min-h-screen font-sans bg-linear-to-r from-black to-indigo-950 text-white'>
       <div className='flex px-4 sm:px-16 pt-[5%]'>
-        <Sidebar sections={sections} icons={icons} />
+        <Sidebar>
+          <SidebarHeader header={header} />
+          <SidebarSections sections={sections} />
+          <SidebarIcons icons={icons} />
+        </Sidebar>
         <div className='ml-[30%] flex-1 p-4 break-all'>
           <section id='Home'>
             ContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContent
@@ -64,3 +74,4 @@ function App() {
 }
 
 export default App
+
