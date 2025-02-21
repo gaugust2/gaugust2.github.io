@@ -1,4 +1,5 @@
 import "./App.css"
+import { Tooltip } from "@material-tailwind/react";
 import Sidebar from "./components/Sidebar/Sidebar"
 import SidebarIcons from "./components/Sidebar/SidebarIcons";
 import SidebarSections from "./components/Sidebar/SidebarSections";
@@ -6,10 +7,12 @@ import SidebarHeader from "./components/Sidebar/SidebarHeader";
 
 import Body from "./components/Body/Body";
 
-import GithubIcon from "./assets/github.svg?react"
-import LinkedInIcon from "./assets/linkedin.svg?react"
-import EmailIcon from "./assets/email.svg?react"
-import ExperienceIcon from "./assets/experience.svg?react"
+import GithubIcon from "./assets/media/github.svg?react"
+import LinkedInIcon from "./assets/media/linkedin.svg?react"
+import EmailIcon from "./assets/media/email.svg?react"
+import ExperienceIcon from "./assets/experience/experience.svg?react"
+
+import * as moduleExports from "./utils/svgImports"
 
 function App() {
   const header = {
@@ -59,7 +62,7 @@ function App() {
 
   return (
     <div className='min-h-screen font-sans bg-linear-to-r from-black to-indigo-950 text-white'>
-      <div className='flex px-4 sm:px-32 pt-[5%]'>
+      <div className='flex sm:px-32 pt-[5%]'>
         <Sidebar>
           <SidebarHeader header={header} />
           <SidebarSections sections={sidebarSections} />
@@ -67,6 +70,7 @@ function App() {
         </Sidebar>
         <Body>
           <section id="Home" className="space-y-2">
+
             <h2 className="text-7xl">Hello👋 I'm<span className="font-bold text-emerald-300"> Gerald</span></h2>
             <h2 className="text-4xl  ">a Software Engineering student dedicated to creating <strong>impactful solutions.</strong></h2>
             <div className="pt-[5%] space-y-4 text-xl text-gray-300">
@@ -76,11 +80,9 @@ function App() {
             </div>
           </section>
 
-
-
-
           <section id="Experience" className="pt-[15%] space-y-4 text-xl">
             <h1 className="text-4xl"><strong>Professional Work Experience</strong></h1>
+
             <div className="p-3">
               <ul className="relative border-l-1 border-white">
                 <li className="mb-10 flex justify-start ">
@@ -118,6 +120,9 @@ function App() {
             <p>If you'd like to hear more about the specific projects I worked on, please visit the <a href="#Projects" className="font-bold underline-hover hover:text-gray-300">Projects</a> section.</p>
           </section>
 
+
+
+
           <section id="Education" className="pt-[10%] text-xl space-y-4">
             <h1 className="text-4xl"><strong>Education</strong></h1>
             <div className="">
@@ -135,13 +140,40 @@ function App() {
             </div>
           </section>
 
+
+
+
+
           <section id="Projects" className="pt-[10%]">
             <h1 className="text-4xl"><strong>Projects</strong></h1>
           </section>
 
 
+
+
+
+
           <section id="Skills" className="pt-[10%]">
             <h1 className="text-4xl"><strong>Skills</strong></h1>
+            <ul className="columns-1 box-border md:columns-2 lg:columns-3 text-xl">
+              {Object.keys(moduleExports).map(k => {
+                const list = moduleExports[k]
+                return (
+                  <li className=" break-inside-avoid p-3" key={k}>
+                    <h1 className="underline mb-4"><strong>{k}</strong></h1>
+                    <ul className="text-center lg:mx-0 lg:max-w-none flex gap-2 flex-wrap">
+                      {list.map(({ iconName, IconComponent }) => (
+                        <li className="relative" key={iconName}>
+                          <Tooltip content={iconName}>
+                            <IconComponent className="w-12 h-12 hover:text-gray-400" />
+                          </Tooltip>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                )
+              })}
+            </ul>
           </section>
 
         </Body>
@@ -153,3 +185,12 @@ function App() {
 
 export default App
 
+/**
+{databasesList.map(({ iconName, IconComponent }) => (
+      <div key={iconName}>
+        <IconComponent className="w-6 h-6" />
+        <p>{iconName}</p> {Display file name}
+      </div>
+    ))}
+          
+ */

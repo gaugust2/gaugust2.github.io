@@ -18,7 +18,7 @@ function SidebarIcons({ icons }: SidebarIconsProps) {
         <div className="mt-8 flex gap-2 flex-wrap">
             {icons.map((icon) => (
                 icon.isTypeURL ? (
-                    <button className="group" onClick={() => openPage(icon.href)}>
+                    <button className="group" onClick={() => openPage(icon.href)} key={icon.href}>
                         {icon.svg}
                     </button>
                 ) : (

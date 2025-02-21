@@ -9,7 +9,7 @@ function SidebarSections({ sections }: SidebarSectionsProps) {
     return (
         <ul className="text-2xl mt-8">
             {sections.map((section) => (
-                <li className='p-1 mb-px'>
+                <li className='p-1 mb-px' key={section.href}>
                     <a className="underline-hover sidebar-heading-hover" href={section.href}>{section.name}</a>
                 </li>
             ))}
