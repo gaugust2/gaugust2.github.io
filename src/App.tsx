@@ -79,16 +79,16 @@ function App() {
 
 
 
-          <section id="Experience" className="pt-[15%] space-y-4 text-lg">
+          <section id="Experience" className="pt-[15%] space-y-4 text-xl">
             <h1 className="text-4xl"><strong>Professional Work Experience</strong></h1>
-            <div className="container mx-auto p-3">
+            <div className="p-3">
               <ul className="relative border-l-1 border-white">
                 <li className="mb-10 flex justify-start ">
                   <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -start-3 bg-black">
                     <ExperienceIcon />
                   </span>
                   <div className="pl-8 text-gray-300">
-                    <h3 className="text-2xl"><strong>Research & Development Intern</strong></h3>
+                    <h3 className="text-3xl"><strong>Research & Development Intern</strong></h3>
                     <p className="text-gray-400 mb-4"><strong>World Vision Canada</strong> - Mississauga, ON<br />September 2023 - August 2024</p>
                     <div className="space-y-2">
                       <p>During my internship, I had the opportunity to work with two distinct teams: an <strong>employee-centric team</strong>, and a <strong>cross-functional development team</strong>.</p>
@@ -105,11 +105,11 @@ function App() {
                     <ExperienceIcon />
                   </span>
                   <div className="pl-8 text-gray-300">
-                    <h3 className="text-2xl"><strong>Database Administrator</strong></h3>
+                    <h1 className="text-3xl"><strong>Database Administrator</strong></h1>
                     <p className="text-gray-400 mb-4"><strong>Southside Community Church</strong> - Milton, ON<br />June 2023 - August 2023</p>
                     <div className="space-y-2">
-                      <p>During this summer job, I received my first hands-on experience in a technical role, helping out a smaller organization with their database needs. My main responsibility here was to clean up their database, and restructure/improve it where possible.</p>
-                      <p>My other responsibilities included writing automations for more efficient data entry/deletion, website refinement, and improving the SEO of their website.</p>
+                      <p>During this summer job, I received valuable hands-on experience working in a technical capacity, helping out a smaller organization with their database needs. My main responsibility was to optimize and restructure the church's database, improving its efficiency and usability.</p>
+                      <p>My other responsibilities included writing scripts to automate data entry/deletion processes, website UI/UX refinement, and SEO enhancement of their website.</p>
                     </div>
                   </div>
                 </li>
@@ -118,8 +118,21 @@ function App() {
             <p>If you'd like to hear more about the specific projects I worked on, please visit the <a href="#Projects" className="font-bold underline-hover hover:text-gray-300">Projects</a> section.</p>
           </section>
 
-          <section id="Education" className="pt-[10%]">
+          <section id="Education" className="pt-[10%] text-xl space-y-4">
             <h1 className="text-4xl"><strong>Education</strong></h1>
+            <div className="">
+              <h1 className="text-2xl"><strong>Bachelor's of Engineering Science</strong></h1>
+              <p className="text-gray-400 mb-4"><strong>University of Western Ontario</strong> - London, ON<br />September 2020 - April 2025</p>
+              <h2 className="mb-px underline">Relevant/Notable Coursework:</h2>
+              <ul className="space-y-1 list-disc list-inside">
+                <li>Database Management Systems</li>
+                <li>Software Testing and Maintenance</li>
+                <li>Information Security</li>
+                <li>Cloud computing: concepts, technologies and application</li>
+                <li>Web Technologies</li>
+                <li>Software Project and Process Management</li>
+              </ul>
+            </div>
           </section>
 
           <section id="Projects" className="pt-[10%]">
