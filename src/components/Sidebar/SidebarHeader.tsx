@@ -8,8 +8,8 @@ export interface SidebarHeaderProps {
 function SidebarHeader({ header }: SidebarHeaderProps) {
     return (
         <span>
-            <h1 className="text-3xl font-bold">{header.name}</h1>
-            <h2 className="text-2xl break-words text-gray-400">{header.description}</h2>
+            <strong className="text-3xl">{header.name}</strong>
+            <h2 className="text-2xl break-words text-gray-300">{header.description}</h2>
         </span>
     )
 }
