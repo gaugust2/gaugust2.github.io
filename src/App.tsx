@@ -1,10 +1,10 @@
 import "./App.css"
-import { Tooltip } from "@material-tailwind/react";
 import Sidebar from "./components/Sidebar/Sidebar"
 import SidebarIcons from "./components/Sidebar/SidebarIcons";
 import SidebarSections from "./components/Sidebar/SidebarSections";
 import SidebarHeader from "./components/Sidebar/SidebarHeader";
 import Projects from "./components/Body/Projects";
+import Skills from "./components/Body/Skills";
 
 import Body from "./components/Body/Body";
 
@@ -197,25 +197,7 @@ function App() {
 
           <section id="Skills" className="text-xl">
             <h1 className="text-4xl"><strong>Skills</strong></h1>
-            <ul className="columns-1 md:columns-2 lg:columns-3">
-              {Object.keys(moduleExports).map(k => {
-                const list = moduleExports[k]
-                return (
-                  <li className=" break-inside-avoid p-3" key={k}>
-                    <h1 className="underline mb-4"><strong>{k}</strong></h1>
-                    <ul className="text-center lg:mx-0 lg:max-w-none flex gap-2 flex-wrap">
-                      {list.map(({ iconName, IconComponent }) => (
-                        <li className="relative" key={iconName}>
-                          <Tooltip content={iconName}>
-                            <IconComponent className="w-12 h-12 hover:text-gray-400" />
-                          </Tooltip>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                )
-              })}
-            </ul>
+            <Skills skills={moduleExports}/>
           </section>
 
         </Body>
