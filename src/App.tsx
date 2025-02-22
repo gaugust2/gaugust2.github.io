@@ -19,6 +19,7 @@ function App() {
     name: "Gerald Augustinepillai",
     description: "4th Year Software Engineering Student at Western University"
   }
+
   const sidebarSections = [
     {
       href: "#Home",
@@ -60,23 +61,65 @@ function App() {
     }
   ]
 
+  const notableCourses: string[] = ["Database Management Systems", "Software Testing and Maintenance", "Information Security", "Cloud computing: concepts, technologies and application", "Web Technologies", "Software Project and Process Management"]
+
+  const projects = [
+    {
+      name: "SharpAI",
+      description: "Designed and developed an AI-powered sports betting analytics tool which abstracts the researching effort for bettors. This app integrates sports APIs to gather historical and real-time data, and uses Retrieval Augmented Generation (RAG) to analyze, summarize, and present the information in an organized structure.",
+      href: "https://github.com/gaugust2/SharpAI",
+      technologies: ["React", "Node.js (Express)", "MongoDB", "AWS Lambda"]
+    },
+    {
+      name: "Customer Insights Chatbot",
+      description: "Developed a Retrieval Augmented Generation (RAG) chatbot built upon a document library containing with customer insights research. The chatbot efficiently retrieves and summarizes content related to the user's query, enabling easy access to valuable informatoin that was previously difficult to find.",
+      technologies: ["HTML", "JavaScript", "TailwindCSS", "Node.js (Express)", "Microsoft SQL", "Azure App Service"]
+    }
+    ,
+    {
+      name: "Multithreaded Chatroom",
+      description: "Created a command-line chatroom application, utilizing semaphores and multithreading to enable multiple users to create and connect to different chatrooms simultaneously.",
+      href: "https://github.com/gaugust2/multithreaded-chatroom",
+      technologies: ["C++"]
+    },
+    {
+      name: "Web Crawler",
+      description: "Wrote a recursive algorithm to crawl and scrape webpages to automate content extraction from websites. This tool gathers content and stores it for further use, whilst also incorporating generative AI to summarize and transform the content into our own words, ensuring originality and relevance for end-users.",
+      technologies: ["Python", "OpenAI (GPT-3.5-Turbo)", "MySQL", "AWS EC2"]
+    },
+    {
+      name: "Music App",
+      description: "Built a music library application for an academic project, allowing users to search for songs, create playlists, and share them with other users.",
+      href: "https://github.com/gaugust2/music-app",
+      technologies: ["React", "TailwindCSS", "Node.js (Express)", "MongoDB", "AWS EC2"]
+    },
+    {
+      name: "Galactical Conquest",
+      description: "Created a video game for an academic project, featuring multiple levels, collectables, resources, NPCs, and objectives.",
+      href: "https://github.com/cblatt/Galactical-Conquest",
+      technologies: ["C#", "Unity"]
+    }
+  ]
+
   return (
-    <div className='min-h-screen font-sans bg-linear-to-r from-black to-indigo-950 text-white'>
+    <div className='min-h-screen font-sans bg-radial from-indigo-950 to-black text-white animate-gradient'>
       <div className='flex sm:px-32 pt-[5%]'>
         <Sidebar>
           <SidebarHeader header={header} />
           <SidebarSections sections={sidebarSections} />
           <SidebarIcons icons={icons} />
         </Sidebar>
+
+
+
         <Body>
           <section id="Home" className="space-y-2">
-
             <h2 className="text-7xl">Hello👋 I'm<span className="font-bold text-emerald-300"> Gerald</span></h2>
             <h2 className="text-4xl  ">a Software Engineering student dedicated to creating <strong>impactful solutions.</strong></h2>
             <div className="pt-[5%] space-y-4 text-xl text-gray-300">
               <p>I'm currently in my final year of studies at the University of Western Ontario. Throughout my academic journey, I've built a solid foundation in computer science principles, software development, and problem solving skills. Although though my time as a student is ending, I firmly believe in being a lifelong learner. My expertise currently lies with <strong>Fullstack Development</strong>, <strong>Relational Databases</strong>, <strong>DevOps</strong>, and <strong>Machine Learning/AI</strong>.</p>
               <p>With over a year of professional experience, I've had the privilege of developing and maintaining software to meet real-world business needs. I've had the opportunity to collaborate with professionals from various backgrounds and work closely with vendors, strengthening my communication and teamwork skills in cross-functional environments. My experience in the non-profit sector has been especially valuable, as I've learned the importance of working towards meaningful goals, creating real, positive change within our society.</p>
-              <p>I am seriously passionate about the work that I do, and I'm always looking for ways to improve myself. I try to take full ownership of projects from start to end, maintaining both a big-picture perspective and detail oriented view. I embrace challenging tasks, and look forward to taking on projects outside of my comfort zone. If you'd like to learn more about me, feel free to check out my resume <a href="https://drive.google.com/file/d/15Afo1tLAb8cfbUag5yVIfCgD3q-r3T0U/view?usp=sharing" target="_blank" className="font-bold text-white underline-hover hover:text-gray-300">here</a>.</p>
+              <p>I am seriously passionate about the work that I do, and I'm always looking for ways to improve myself. I try to take full ownership of projects from start to end, maintaining both a big-picture perspective and detail oriented view. I embrace challenging tasks, and look forward to taking on projects outside of my comfort zone. If you'd like to learn more about me, feel free to check out my resume <a href="https://drive.google.com/file/d/1u_chzxQuGQkDfTEM8SiYe2QjQMLG-fZ6/view?usp=sharing" target="_blank" className="font-bold text-white underline-hover hover:text-gray-300">here</a>.</p>
             </div>
           </section>
 
@@ -130,12 +173,7 @@ function App() {
               <p className="text-gray-400 mb-4"><strong>University of Western Ontario</strong> - London, ON<br />September 2020 - April 2025</p>
               <h2 className="mb-px underline">Relevant/Notable Coursework:</h2>
               <ul className="space-y-1 list-disc list-inside">
-                <li>Database Management Systems</li>
-                <li>Software Testing and Maintenance</li>
-                <li>Information Security</li>
-                <li>Cloud computing: concepts, technologies and application</li>
-                <li>Web Technologies</li>
-                <li>Software Project and Process Management</li>
+                {notableCourses.map((course) => <li>{course}</li>)}
               </ul>
             </div>
           </section>
@@ -143,9 +181,21 @@ function App() {
 
 
 
-
           <section id="Projects" className="pt-[10%]">
-            <h1 className="text-4xl"><strong>Projects</strong></h1>
+            <h1 className="text-4xl mb-4"><strong>Projects</strong></h1>
+            <ul className="columns-1 md:columns-2 text-lg">
+              {projects.map((project) => (
+                <li className=" break-inside-avoid p-3 mb-2 bg-gray-400/10 hover:bg-gray-700/10 rounded-lg" key={project.name}>
+                  <a href={project.href} target="_blank">
+                    <h1 className="mb-4 text-xl">{project.name}</h1>
+                    <p className="text-gray-300">{project.description}</p>
+                    <ul className="flex flex-wrap pt-4 gap-1 text-base">
+                      {project.technologies.map((technology) => <li className="px-2 py-px bg-black/30 text-emerald-300 rounded-lg">{technology}</li>)}
+                    </ul>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </section>
 
 
@@ -155,7 +205,7 @@ function App() {
 
           <section id="Skills" className="pt-[10%]">
             <h1 className="text-4xl"><strong>Skills</strong></h1>
-            <ul className="columns-1 box-border md:columns-2 lg:columns-3 text-xl">
+            <ul className="columns-1 md:columns-2 lg:columns-3 text-xl">
               {Object.keys(moduleExports).map(k => {
                 const list = moduleExports[k]
                 return (
@@ -184,13 +234,3 @@ function App() {
 }
 
 export default App
-
-/**
-{databasesList.map(({ iconName, IconComponent }) => (
-      <div key={iconName}>
-        <IconComponent className="w-6 h-6" />
-        <p>{iconName}</p> {Display file name}
-      </div>
-    ))}
-          
- */
