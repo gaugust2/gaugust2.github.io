@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar/Sidebar"
 import SidebarIcons from "./components/Sidebar/SidebarIcons";
 import SidebarSections from "./components/Sidebar/SidebarSections";
 import SidebarHeader from "./components/Sidebar/SidebarHeader";
+import Projects from "./components/Body/Projects";
 
 import Body from "./components/Body/Body";
 
@@ -123,7 +124,10 @@ function App() {
             </div>
           </section>
 
-          <section id="Experience" className="pt-[15%] space-y-4 text-xl">
+
+
+
+          <section id="Experience" className="space-y-4 text-xl">
             <h1 className="text-4xl"><strong>Professional Work Experience</strong></h1>
 
             <div className="p-3">
@@ -166,7 +170,7 @@ function App() {
 
 
 
-          <section id="Education" className="pt-[10%] text-xl space-y-4">
+          <section id="Education" className="text-xl space-y-4">
             <h1 className="text-4xl"><strong>Education</strong></h1>
             <div className="">
               <h1 className="text-2xl"><strong>Bachelor's of Engineering Science</strong></h1>
@@ -181,21 +185,9 @@ function App() {
 
 
 
-          <section id="Projects" className="pt-[10%]">
+          <section id="Projects" className="text-lg">
             <h1 className="text-4xl mb-4"><strong>Projects</strong></h1>
-            <ul className="columns-1 md:columns-2 text-lg">
-              {projects.map((project) => (
-                <li className=" break-inside-avoid p-3 mb-2 bg-gray-400/10 hover:bg-gray-700/10 rounded-lg" key={project.name}>
-                  <a href={project.href} target="_blank">
-                    <h1 className="mb-4 text-xl">{project.name}</h1>
-                    <p className="text-gray-300">{project.description}</p>
-                    <ul className="flex flex-wrap pt-4 gap-1 text-base">
-                      {project.technologies.map((technology) => <li className="px-2 py-px bg-black/30 text-emerald-300 rounded-lg">{technology}</li>)}
-                    </ul>
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <Projects projects={projects} />
           </section>
 
 
@@ -203,9 +195,9 @@ function App() {
 
 
 
-          <section id="Skills" className="pt-[10%]">
+          <section id="Skills" className="text-xl">
             <h1 className="text-4xl"><strong>Skills</strong></h1>
-            <ul className="columns-1 md:columns-2 lg:columns-3 text-xl">
+            <ul className="columns-1 md:columns-2 lg:columns-3">
               {Object.keys(moduleExports).map(k => {
                 const list = moduleExports[k]
                 return (
@@ -234,3 +226,5 @@ function App() {
 }
 
 export default App
+
+

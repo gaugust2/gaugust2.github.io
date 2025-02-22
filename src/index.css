@@ -42,3 +42,7 @@ strong {
   animation: randomGradientMovement 30s ease infinite;
 }
 
+
+section {
+  @apply pb-[15%]
+}
