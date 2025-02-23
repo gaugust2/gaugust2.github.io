@@ -16,7 +16,7 @@ function Projects({ projects }: ProjectsProps) {
                         <h1 className="mb-4 text-xl">{project.name}</h1>
                         <p className="text-gray-300">{project.description}</p>
                         <ul className="flex flex-wrap pt-4 gap-1 text-base">
-                            {project.technologies.map((technology) => <li className="px-2 py-px bg-black/30 text-emerald-300 rounded-lg">{technology}</li>)}
+                            {project.technologies.map((technology) => <li className="px-2 py-px bg-black/30 text-emerald-300 rounded-lg" key={technology}>{technology}</li>)}
                         </ul>
                     </a>
                 </li>
