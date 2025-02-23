@@ -1,14 +1,15 @@
 import { ReactNode } from "react";
 
 interface SidebarProps {
-  children: ReactNode;
+  children: ReactNode
+  className: string
 }
 
-function Sidebar({ children }: SidebarProps) {
+function Sidebar({ children, className }: SidebarProps) {
   return (
-    <div className='flex flex-col text-white fixed p-4 h-full w-1/4'>
+    <aside className={className}>
       {children}
-    </div>
+    </aside>
   )
 }
 

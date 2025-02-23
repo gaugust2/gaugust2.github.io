@@ -12,10 +12,15 @@ import GithubIcon from "./assets/media/github.svg?react"
 import LinkedInIcon from "./assets/media/linkedin.svg?react"
 import EmailIcon from "./assets/media/email.svg?react"
 import ExperienceIcon from "./assets/experience/experience.svg?react"
+import MenuIcon from "./assets/sidebar/menu.svg?react"
 
 import * as moduleExports from "./utils/svgImports"
 
+import { useState } from "react";
+
 function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+
   const header = {
     name: "Gerald Augustinepillai",
     description: "4th Year Software Engineering Student at Western University"
@@ -103,9 +108,14 @@ function App() {
   ]
 
   return (
-    <div className='min-h-screen font-sans bg-radial from-indigo-950 to-black text-white animate-gradient'>
-      <div className='flex sm:px-32 pt-[5%]'>
-        <Sidebar>
+    <div className='min-h-screen font-sans bg-radial from-indigo-950 to-black text-white animate-gradient overflow-x-hidden'>
+      <button type="button" className="fixed top-2 left-2 lg:hidden group" onClick={() => setSidebarOpen(!sidebarOpen)}>
+          <MenuIcon className="h-10 w-10 media-icon-hover" />
+        </button>
+
+      <div className='flex px-2 lg:px-32 pt-[10%] lg:pt-[5%]'>
+        
+        <Sidebar className={`flex flex-col text-white fixed p-4 h-full w-1/2 lg:w-1/4 transition-all duration-300 ${sidebarOpen ? "" : "-translate-x-full lg:translate-x-0"}`}>
           <SidebarHeader header={header} />
           <SidebarSections sections={sidebarSections} />
           <SidebarIcons icons={icons} />
@@ -113,7 +123,7 @@ function App() {
 
 
 
-        <Body>
+        <Body className={`lg:ml-[30%] flex-1 p-4 break-normal transition-all duration-300 ${sidebarOpen ? "translate-x-1/2 lg:translate-x-0" : ""}`}>
           <section id="Home" className="space-y-2">
             <h2 className="text-7xl">Hello👋 I'm<span className="font-bold text-emerald-300"> Gerald</span></h2>
             <h2 className="text-4xl  ">a Software Engineering student dedicated to creating <strong>impactful solutions.</strong></h2>
@@ -197,7 +207,7 @@ function App() {
 
           <section id="Skills" className="text-xl">
             <h1 className="text-4xl"><strong>Skills</strong></h1>
-            <Skills skills={moduleExports}/>
+            <Skills skills={moduleExports} />
           </section>
 
         </Body>

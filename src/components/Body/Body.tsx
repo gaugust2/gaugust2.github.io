@@ -1,12 +1,13 @@
 import { ReactNode } from "react";
 
 interface BodyProps {
-  children: ReactNode;
+  children: ReactNode
+  className: string
 }
 
-function Body({ children }: BodyProps) {
+function Body({ children, className }: BodyProps) {
   return (
-    <div className='ml-[30%] flex-1 p-4 break-normal overflow-x-auto'>
+    <div className={className}>
       {children}
     </div>
   )

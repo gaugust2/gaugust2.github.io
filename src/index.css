@@ -46,3 +46,7 @@ strong {
 section {
   @apply pb-[15%]
 }
+
+button {
+  @apply cursor-pointer
+}
