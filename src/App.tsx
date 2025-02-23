@@ -11,6 +11,7 @@ import Body from "./components/Body/Body";
 import GithubIcon from "./assets/media/github.svg?react"
 import LinkedInIcon from "./assets/media/linkedin.svg?react"
 import EmailIcon from "./assets/media/email.svg?react"
+import ResumeIcon from "./assets/media/resume.svg?react"
 import ExperienceIcon from "./assets/experience/experience.svg?react"
 import MenuIcon from "./assets/sidebar/menu.svg?react"
 
@@ -59,6 +60,12 @@ function App() {
       href: "https://www.linkedin.com/in/gerald-augustinepillai-8b3832260",
       svg: <LinkedInIcon className="h-10 w-10 media-icon-hover" />,
       isTypeURL: true
+    },
+    {
+      href: "https://drive.google.com/file/d/1u_chzxQuGQkDfTEM8SiYe2QjQMLG-fZ6/view?usp=sharing",
+      svg: <ResumeIcon className="h-10 w-10 media-icon-hover" />,
+      isTypeURL: true,
+      tooltipContent: "Resume"
     },
     {
       href: "a.gerald.2002@gmail.com",
@@ -137,7 +144,7 @@ function App() {
 
 
         <Body className={`lg:ml-[30%] flex-1 p-4 break-normal transition-all duration-300 ${sidebarOpen ? "translate-x-1/2 lg:translate-x-0" : "translate-x-0"}`} onClick={() => setSidebarOpen(false)}>
-          <section id="Home" className="space-y-2">
+          <section id="Home" className="space-y-2 py-14 -mt-14">
             <h2 className="text-7xl">Hello👋 I'm<span className="font-bold text-emerald-300"> Gerald</span></h2>
             <h2 className="text-4xl  ">a Software Engineering student dedicated to creating <strong>impactful solutions.</strong></h2>
             <div className="pt-[5%] space-y-4 text-xl text-gray-300">
@@ -150,7 +157,7 @@ function App() {
 
 
 
-          <section id="Experience" className="space-y-4 text-xl">
+          <section id="Experience" className="space-y-4 text-xl py-14 -mt-14">
             <h1 className="text-4xl"><strong>Professional Work Experience</strong></h1>
 
             <div className="p-3">
@@ -193,14 +200,14 @@ function App() {
 
 
 
-          <section id="Education" className="text-xl space-y-4">
+          <section id="Education" className="text-xl space-y-4 py-14 -mt-14">
             <h1 className="text-4xl"><strong>Education</strong></h1>
             <div className="">
               <h1 className="text-2xl"><strong>Bachelor's of Engineering Science</strong></h1>
               <p className="text-gray-400 mb-4"><strong>University of Western Ontario</strong> - London, ON<br />September 2020 - April 2025</p>
               <h2 className="mb-px underline">Relevant/Notable Coursework:</h2>
               <ul className="space-y-1 list-disc list-inside">
-                {notableCourses.map((course) => <li>{course}</li>)}
+                {notableCourses.map((course) => <li key={course}>{course}</li>)}
               </ul>
             </div>
           </section>
@@ -208,7 +215,7 @@ function App() {
 
 
 
-          <section id="Projects" className="text-lg">
+          <section id="Projects" className="text-lg py-14 -mt-14">
             <h1 className="text-4xl mb-4"><strong>Projects</strong></h1>
             <Projects projects={projects} />
           </section>
@@ -218,7 +225,7 @@ function App() {
 
 
 
-          <section id="Skills" className="text-xl">
+          <section id="Skills" className="text-xl py-14 -mt-14">
             <h1 className="text-4xl"><strong>Skills</strong></h1>
             <Skills skills={moduleExports} />
           </section>
