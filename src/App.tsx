@@ -16,7 +16,7 @@ import MenuIcon from "./assets/sidebar/menu.svg?react"
 
 import * as moduleExports from "./utils/svgImports"
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -107,23 +107,36 @@ function App() {
     }
   ]
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setSidebarOpen(false)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
   return (
     <div className='min-h-screen font-sans bg-radial from-indigo-950 to-black text-white animate-gradient overflow-x-hidden'>
-      <button type="button" className="fixed top-2 left-2 lg:hidden group" onClick={() => setSidebarOpen(!sidebarOpen)}>
+      <button type="button" className="fixed top-2 left-2 lg:hidden group z-50" onClick={() => setSidebarOpen(!sidebarOpen)}>
           <MenuIcon className="h-10 w-10 media-icon-hover" />
         </button>
 
       <div className='flex px-2 lg:px-32 pt-[10%] lg:pt-[5%]'>
         
-        <Sidebar className={`flex flex-col text-white fixed p-4 h-full w-1/2 lg:w-1/4 transition-all duration-300 ${sidebarOpen ? "" : "-translate-x-full lg:translate-x-0"}`}>
+        <Sidebar className={`flex flex-col text-white fixed p-4 h-full w-1/2 lg:w-1/4 transition-all duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}>
           <SidebarHeader header={header} />
-          <SidebarSections sections={sidebarSections} />
+          <SidebarSections sections={sidebarSections} onClick={() => setSidebarOpen(false)}/>
           <SidebarIcons icons={icons} />
         </Sidebar>
 
 
 
-        <Body className={`lg:ml-[30%] flex-1 p-4 break-normal transition-all duration-300 ${sidebarOpen ? "translate-x-1/2 lg:translate-x-0" : ""}`}>
+        <Body className={`lg:ml-[30%] flex-1 p-4 break-normal transition-all duration-300 ${sidebarOpen ? "translate-x-1/2 lg:translate-x-0" : "translate-x-0"}`} onClick={() => setSidebarOpen(false)}>
           <section id="Home" className="space-y-2">
             <h2 className="text-7xl">Hello👋 I'm<span className="font-bold text-emerald-300"> Gerald</span></h2>
             <h2 className="text-4xl  ">a Software Engineering student dedicated to creating <strong>impactful solutions.</strong></h2>
