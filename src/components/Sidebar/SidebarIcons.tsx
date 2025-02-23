@@ -6,21 +6,30 @@ import handleClipboard from "../../utils/handleClipboard";
 export interface SidebarIconsProps {
     icons: {
         href: string
-        svg: ReactElement<SVGProps<SVGSVGElement>>;
-        isTypeURL: boolean;
+        svg: ReactElement<SVGProps<SVGSVGElement>>
+        isTypeURL: boolean
+        tooltipContent?: string
     }[]
 }
 
 function SidebarIcons({ icons }: SidebarIconsProps) {
-    const [copied, setCopied] = useState(false);
+    const [copied, setCopied] = useState(false)
 
     return (
         <div className="mt-8 flex gap-2 flex-wrap">
             {icons.map((icon) => (
                 icon.isTypeURL ? (
-                    <button className="group" onClick={() => openPage(icon.href)} key={icon.href}>
-                        {icon.svg}
-                    </button>
+                    icon.tooltipContent ? (
+                        <Tooltip content={icon.tooltipContent} key={icon.href} >
+                            <button className="group" onClick={() => openPage(icon.href)} key={icon.href}>
+                                {icon.svg}
+                            </button>
+                        </Tooltip>
+                    ) : (
+                        <button className="group" onClick={() => openPage(icon.href)} key={icon.href}>
+                            {icon.svg}
+                        </button>
+                    )
                 ) : (
                     <Tooltip content={copied ? "Copied" : "Copy"} key={icon.href}>
                         <button onMouseLeave={() => setCopied(false)} className="group" onClick={() => {
@@ -37,4 +46,3 @@ function SidebarIcons({ icons }: SidebarIconsProps) {
 }
 
 export default SidebarIcons
-
