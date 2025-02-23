@@ -1,7 +1,7 @@
 import { Tooltip } from "@material-tailwind/react"
 
 interface Skill {
-    iconName: string
+    iconName: string | undefined
     IconComponent: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }
 
