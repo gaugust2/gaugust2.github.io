@@ -207,7 +207,7 @@ function App() {
               <p className="text-gray-400 mb-4"><strong>University of Western Ontario</strong> - London, ON<br />September 2020 - April 2025</p>
               <h2 className="mb-px underline">Relevant/Notable Coursework:</h2>
               <ul className="space-y-1 list-disc list-inside">
-                {notableCourses.map((course) => <li>{course}</li>)}
+                {notableCourses.map((course) => <li key={course}>{course}</li>)}
               </ul>
             </div>
           </section>
