@@ -57,7 +57,7 @@ function App() {
       isTypeURL: true
     },
     {
-      href: "https://www.linkedin.com/in/gerald-augustinepillai-8b3832260",
+      href: "https://www.linkedin.com/in/gerald-augustinepillai",
       svg: <LinkedInIcon className="h-10 w-10 media-icon-hover" />,
       isTypeURL: true
     },
